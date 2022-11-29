@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:YouCashApp.CustomRenderer"
+             x:Class="YouCashApp.SignUp" 
+             NavigationPage.HasNavigationBar="false" >
+
+    <Grid VerticalOptions="FillAndExpand">
+        <StackLayout >
+            <Frame HeightRequest="800" BackgroundColor="#00b6c6"  Padding="0" >
+                <Image Source="https://console.kr-asia.com/wp-content/uploads/2020/07/Indonesia_mobile_wallet.png" Aspect="AspectFill" Margin="0" Opacity="0.7"/>
+            </Frame>
+        </StackLayout>
+        <StackLayout Padding="0" Margin="10,50,10,0" HorizontalOptions="FillAndExpand">
+            <Frame  BackgroundColor="White" BorderColor="Black" HeightRequest="600" HasShadow="True" CornerRadius="12" Opacity="0.8" Padding="0" Margin="0">
+
+                <StackLayout>
+                    <StackLayout Margin="10">
+                        <Label Text="SIGN UP" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="25"/>
+                    </StackLayout>
+
+                    <StackLayout Padding="0" Margin="15,10">
+
+                     <Frame BackgroundColor="Gray" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+                                    <Entry x:Name="txtId" Placeholder="Email" TextColor="#00b6c6" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                                </StackLayout>
+                      </Frame>
+                     <Frame BackgroundColor="Gray" BorderColor="Black" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+                                <Entry x:Name="txtName" Placeholder="Password" IsPassword="True" TextColor="#00b6c6" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                                <local:CustomEntry />
+                                </StackLayout>
+                      </Frame>
+
+                            
+                        <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                            <Button x:Name="btnAdd" WidthRequest="100" Text="Add" Clicked="BtnAdd_Clicked"/>
+                            <Button x:Name="btnRetrive" WidthRequest="100" Text="Retrive" Clicked="BtnRetrive_Clicked"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                            <Button x:Name="btnUpdate" WidthRequest="100" Text="Update" Clicked="BtnUpdate_Clicked" />
+                            <Button x:Name="btnDelete" WidthRequest="100" Text="Delete" Clicked="BtnDelete_Clicked" />
+                        </StackLayout>
+                        <Grid HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Email" TextColor="#757575" FontSize="9" HorizontalOptions="Center" VerticalOptions="Center"  Margin="5,0"/>
+                            <Label Grid.Column="1" Text="Password" TextColor="#757575" FontSize="9" HorizontalOptions="Center" VerticalOptions="Center" Margin="5,0"/>
+                        </Grid>
+                        
+                        <ListView x:Name="lstPersons" SeparatorVisibility="None"
+                  Grid.Row="1" Margin="20,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame BackgroundColor="White" BorderColor="#F0F0F0" Padding="5" Margin="0,0,0,5" HasShadow="False">
+                                            <Grid HeightRequest="50" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                
+                                                <Label Text="{Binding Email}" TextColor="#757575" FontSize="9" HorizontalOptions="Center" VerticalOptions="Center"  Margin="5,0"/>
+                                                
+                                                <Label Grid.Column="1" Text="{Binding Password}" TextColor="#757575" FontSize="10" HorizontalOptions="Center" VerticalOptions="Center" Margin="5,0"/>
+                                            </Grid>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+ 
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    
+
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
