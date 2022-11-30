@@ -1,4 +1,5 @@
 ﻿using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,11 +11,22 @@ namespace YouCashApp
         {
             Device.SetFlags(new string[] { "MediaElement_Experimental", "Brush_Experimental" });
             InitializeComponent();
-            MainPage = new NavigationPage(new LandPage());
         }
 
-        protected override void OnStart()
+       
+
+        protected async override void OnStart()
         {
+            var current = Connectivity.NetworkAccess;
+
+            if (current == NetworkAccess.Internet)
+            {
+                MainPage = new NavigationPage(new LandPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new NoConnection());
+            }
         }
 
         protected override void OnSleep()

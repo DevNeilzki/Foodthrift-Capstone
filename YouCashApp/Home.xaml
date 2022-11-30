@@ -17,7 +17,7 @@
                       IsLooping="True" Aspect="AspectFill" AutoPlay="True"
                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
-            <Label Text="SIGN IN" TextColor="white" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="25" Margin="0,100,0,0" />
+            <Label Text="Campaign Drives" TextColor="FloralWhite" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="25" Margin="0,100,0,0" />
 
             <BoxView>
             <BoxView.Background>
@@ -38,7 +38,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <Frame BackgroundColor="white" BorderColor="Black"  Padding="5" Margin="0,0,0,5" HasShadow="False">
-                            <Grid Padding="10" HeightRequest="130" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                            <Grid Padding="10" HeightRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
@@ -47,21 +47,25 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Image Grid.RowSpan="2" 
-                                   Source="{Binding ImageUrl}" 
-                                   Aspect="AspectFill"
-                                   HeightRequest="75"
-                                   WidthRequest="75" />
-                            <Label Grid.Column="1" 
+                                <Image Grid.Row="0" 
+                                    Source="https://console.kr-asia.com/wp-content/uploads/2020/07/Indonesia_mobile_wallet.png" 
+                                    Aspect="AspectFill" 
+                                    Margin="0"
+                                    HeightRequest="100"  
+                                    WidthRequest="330"  
+                                    Opacity="0.7"/>
+                                <Label Grid.Row="1" 
                                    Text="{Binding Email}"
                                    TextColor="Black"
+                                   FontSize="20"
+                                   TextTransform="Uppercase"
+                                   HorizontalOptions="CenterAndExpand"
                                    FontAttributes="Bold" />
                                 <Label Grid.Row="1" 
-                                   Grid.Column="1" 
                                    TextColor="Black"
                                    Text="{Binding Password}"
                                    VerticalOptions="End" />
-                                <Button Grid.Row="2" Grid.Column="1"  x:Name="btnUpdate" WidthRequest="100" Text="See more"/>
+                                <Button Grid.Row="2" Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="See more"/>
                             </Grid>
                         </Frame>
                     </ViewCell>
