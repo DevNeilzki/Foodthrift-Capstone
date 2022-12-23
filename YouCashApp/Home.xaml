@@ -65,7 +65,7 @@
                                    TextColor="Black"
                                    Text="{Binding Password}"
                                    VerticalOptions="End" />
-                                    <Button Grid.Row="2" Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="See more"  Clicked="Button_Clicked"/>
+                                <Button Grid.Row="2" Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="See more"/>
                             </Grid>
                         </Frame>
                     </ViewCell>

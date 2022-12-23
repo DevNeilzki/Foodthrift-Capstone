@@ -66,7 +66,7 @@ namespace YouCashApp
                         await App.Current.MainPage.DisplayAlert("Login Success", "Welcome to Foodthrift!", "Ok");
                         //Navigate to Wellcom page after successfuly login    
                         //pass user email to welcom page    
-                        await Navigation.PushAsync(new DonorHomepage());
+                        await Navigation.PushAsync(new Homepage());
                     }
                     else
                         await App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct Email and Password", "OK");
