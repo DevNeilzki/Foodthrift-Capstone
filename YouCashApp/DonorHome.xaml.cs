@@ -11,14 +11,14 @@ using YouCashApp.Helper;
 namespace YouCashApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Home : ContentPage
+    public partial class DonorHome : ContentPage
     {
+
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         public IList<Monkey> Monkeys { get; private set; }
-        public Home()
+        public DonorHome()
         {
             InitializeComponent();
-
             Monkeys = new List<Monkey>();
             Monkeys.Add(new Monkey
             {
@@ -141,7 +141,6 @@ namespace YouCashApp
 
             BindingContext = this;
         }
-
         protected async override void OnAppearing()
         {
 

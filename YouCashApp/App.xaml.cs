@@ -15,7 +15,7 @@ namespace YouCashApp
 
        
 
-        protected async override void OnStart()
+        protected override void OnStart()
         {
             var current = Connectivity.NetworkAccess;
 
