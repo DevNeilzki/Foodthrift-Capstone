@@ -15,13 +15,13 @@ namespace YouCashApp
 
        
 
-        protected async override void OnStart()
+        protected override void OnStart()
         {
             var current = Connectivity.NetworkAccess;
 
             if (current == NetworkAccess.Internet)
             {
-                MainPage = new NavigationPage(new LandPage());
+                MainPage = new NavigationPage(new Campaign());
             }
             else
             {
