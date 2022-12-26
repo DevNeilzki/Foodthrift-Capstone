@@ -21,7 +21,7 @@ namespace YouCashApp
 
             if (current == NetworkAccess.Internet)
             {
-                MainPage = new NavigationPage(new LandPage());
+                MainPage = new NavigationPage(new Campaign());
             }
             else
             {

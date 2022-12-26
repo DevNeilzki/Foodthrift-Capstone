@@ -9,11 +9,11 @@
              x:Class="YouCashApp.Campaign" >
 
     <StackLayout Padding="0" Margin="15,10" >
-
-        <Frame BackgroundColor="white" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="10">
-            <ScrollView>
+        
+            <Frame BackgroundColor="white" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="10">
+             <ScrollView>
                 <StackLayout Orientation="Vertical">
-
+                  
                     <Frame>
                         <Label Text="Campaign Request Form" TextColor="white" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="20" Padding="15" Margin="0,0,0,0" />
                         <Frame.Background>
@@ -25,24 +25,18 @@
                             </LinearGradientBrush>
                         </Frame.Background>
                     </Frame>
-                    <Label Text="Campaign Title" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,15,20,0"/>
-                    <controls:CustomEntry ReturnType="Next"  x:Name="Cmpgntitle" Placeholder="Type Here"  PlaceholderColor="Black"  TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="1"></controls:CustomEntry>
                     <Label Text="Description" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
-                    <controls:CustomEntry ReturnType="Next" x:Name="Description" Placeholder="Type Here" PlaceholderColor="Black"  TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="2"></controls:CustomEntry>
                     <Label Text="Campaign Location" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
-                    <controls:CustomEntry ReturnType="Next" x:Name="CmpgnLoc" Placeholder="Type Here" TextColor="Black" PlaceholderColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="3"></controls:CustomEntry>
                     <Label Text="Campaign Target" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
-                    <controls:CustomEntry  x:Name="CmpgnTarget" Placeholder="Type Here" TextColor="Black" PlaceholderColor="Black"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"></controls:CustomEntry>
                     <Label Text="Donation Drive Date (Start)" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
                     <controls:CustomEntry x:Name="CmpgnStartDate" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"></controls:CustomEntry>
                     <DatePicker x:Name="datePicker" Date="{x:Static system:DateTime.Today}" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand"  Margin="10,0,10,0" IsVisible="false"/>
                     <Label Text="Donation Drive Date (End)" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
                     <controls:CustomEntry x:Name="CmpgnEndDate" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"></controls:CustomEntry>
 
-                    <Button Text="SUBMIT" BackgroundColor="#00b6c6" TextColor="White" CornerRadius="15" Margin="10,15,20,0"/>
                 </StackLayout>
             </ScrollView>
         </Frame>
-
+     
     </StackLayout>
 </ContentPage>
