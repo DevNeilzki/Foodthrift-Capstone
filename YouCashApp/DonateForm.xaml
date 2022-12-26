@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:system="clr-namespace:System;assembly=mscorlib"
+               xmlns:controls="clr-namespace:YouCashApp.CustomRenderer" 
+              xmlns:local="clr-namespace:YouCashApp.CustomRenderer" 
+               BackgroundColor="white"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="YouCashApp.DonateForm">
+
+    <StackLayout Padding="0" Margin="15,10" >
+
+        <Entry x:Name="title" TextColor="Black"></Entry>
+        <Button Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="Submit" Margin="10,0,20,0" Clicked="Button_Clicked"/>
+    </StackLayout>
+</ContentPage>

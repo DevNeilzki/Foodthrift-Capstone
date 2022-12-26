@@ -149,19 +149,24 @@ namespace YouCashApp
             lstPersons.ItemsSource = allPersons;
         }
 
-        void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void OnCampaignTapped(object sender, ItemTappedEventArgs e)
         {
-            Monkey selectedItem = e.SelectedItem as Monkey;
+            Person selection = (Person)e.Item;
+            await Navigation.PushAsync(new CampaignView(selection));
         }
+
+     
 
         void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
         {
             Monkey tappedItem = e.Item as Monkey;
+                  
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CampaignView());
+           // await Navigation.PushAsync(new CampaignView());//
         }
+
     }
 }

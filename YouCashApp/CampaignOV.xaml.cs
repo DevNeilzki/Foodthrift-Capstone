@@ -8,15 +8,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YouCashApp.Helper;
 using YouCashApp.Model;
-using static Xamarin.Forms.Internals.Profile;
 
 namespace YouCashApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CampaignView : ContentPage
+    public partial class CampaignOV : ContentPage
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
-        public CampaignView(Person data)
+        public CampaignOV(Person data)
         {
             InitializeComponent();
             displaydata(data);
@@ -31,6 +30,10 @@ namespace YouCashApp
                 lblTitle.Text = person.Email.ToString();
                 lblTitle2.Text = person.Password;
             }
+        }
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Campaign());
         }
     }
 }

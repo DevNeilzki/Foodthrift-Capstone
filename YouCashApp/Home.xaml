@@ -6,6 +6,7 @@
               xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
               xmlns:vm="clr-namespace:YouCashApp"
              mc:Ignorable="d"
+               NavigationPage.HasNavigationBar="false"
              x:Class="YouCashApp.Home"  BackgroundColor="white" 
              x:Name="BrowseItemsPage">
     <ContentPage.BindingContext>
@@ -30,10 +31,9 @@
             </BoxView.Background>
         </BoxView>
 
-          
-            <ListView ItemsSource="{Binding Monkeys}" x:Name="lstPersons" 
-                  HasUnevenRows="true" 
-                  ItemSelected="OnListViewItemSelected" Margin="0,150,0,0">
+
+            <ListView ItemsSource="{Binding Monkeys}" x:Name="lstPersons" ItemTapped="OnCampaignTapped"
+                  HasUnevenRows="true" SelectedItem="{Binding Email}" Margin="0,150,0,0">
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <ViewCell>
@@ -65,7 +65,7 @@
                                    TextColor="Black"
                                    Text="{Binding Password}"
                                    VerticalOptions="End" />
-                                <Button Grid.Row="2" Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="See more"/>
+                                    <Button Grid.Row="2" Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="See more" Clicked="Button_Clicked" />
                             </Grid>
                         </Frame>
                     </ViewCell>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YouCashApp.Model;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YouCashApp.Helper;
@@ -11,14 +11,13 @@ using YouCashApp.Helper;
 namespace YouCashApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Home : ContentPage
+    public partial class BenifNotif : ContentPage
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         public IList<Monkey> Monkeys { get; private set; }
-        public Home()
+        public BenifNotif()
         {
             InitializeComponent();
-
             Monkeys = new List<Monkey>();
             Monkeys.Add(new Monkey
             {
@@ -144,12 +143,10 @@ namespace YouCashApp
 
         protected async override void OnAppearing()
         {
-
             base.OnAppearing();
             var allPersons = await firebaseHelper.GetAllPersons();
             lstPersons.ItemsSource = allPersons;
         }
-
         void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Monkey selectedItem = e.SelectedItem as Monkey;
@@ -158,16 +155,6 @@ namespace YouCashApp
         void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
         {
             Monkey tappedItem = e.Item as Monkey;
-        }
-
-        async void OnCampaignTapped(object sender, ItemTappedEventArgs e)
-        {
-            Person selection = (Person)e.Item;
-            await Navigation.PushAsync(new CampaignOV(selection));
-        }
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-           // await Navigation.PushAsync(new CampaignOV());//
         }
     }
 }

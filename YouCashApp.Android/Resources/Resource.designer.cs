@@ -8843,6 +8843,7 @@ namespace YouCashApp.Droid
 			global::Xamarin.Essentials.Resource.Id.text2 = global::YouCashApp.Droid.Resource.Id.text2;
 			global::Xamarin.Essentials.Resource.Id.time = global::YouCashApp.Droid.Resource.Id.time;
 			global::Xamarin.Essentials.Resource.Id.title = global::YouCashApp.Droid.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Id.view_tree_lifecycle_owner = global::YouCashApp.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::YouCashApp.Droid.Resource.Integer.status_bar_notification_info_maxnum;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_page = global::YouCashApp.Droid.Resource.Layout.browser_actions_context_menu_page;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_row = global::YouCashApp.Droid.Resource.Layout.browser_actions_context_menu_row;

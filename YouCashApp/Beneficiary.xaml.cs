@@ -18,6 +18,7 @@ namespace YouCashApp
         {
             InitializeComponent();
             Task.Run(AnimateBorder);
+            email.Focus();
         }
         private async void AnimateBorder()
         {
@@ -49,6 +50,7 @@ namespace YouCashApp
             }
 
         }
+
 
         private async void OnButtonClicked(object sender, EventArgs args)
         {

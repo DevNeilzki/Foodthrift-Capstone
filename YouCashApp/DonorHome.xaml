@@ -6,6 +6,7 @@
               xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
               xmlns:vm="clr-namespace:YouCashApp"
              mc:Ignorable="d"
+               NavigationPage.HasNavigationBar="false"
              BackgroundColor="white" 
              x:Class="YouCashApp.DonorHome">
     <ContentPage.BindingContext>
@@ -31,9 +32,8 @@
             </BoxView>
 
 
-            <ListView ItemsSource="{Binding Monkeys}"  x:Name="lstPersons" 
-                  HasUnevenRows="true" 
-                  ItemSelected="OnListViewItemSelected" Margin="0,150,0,0">
+            <ListView ItemsSource="{Binding Monkeys}"  x:Name="lstPersons" ItemTapped="OnCampaignTapped"
+                  HasUnevenRows="true" SelectedItem="{Binding Email}" Margin="0,150,0,0">
                 <ListView.ItemTemplate >
                     <DataTemplate>
                         <ViewCell>
@@ -54,8 +54,9 @@
                                     HeightRequest="100"  
                                     WidthRequest="330"  
                                     Opacity="0.7"/>
-                                    <Label Grid.Row="1" 
+                                    <Entry Grid.Row="1" 
                                    Text="{Binding Email}"
+                                   x:Name="display"
                                    TextColor="Black"
                                    FontSize="20"
                                    TextTransform="Uppercase"

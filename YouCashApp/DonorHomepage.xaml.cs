@@ -17,7 +17,8 @@ namespace YouCashApp
         {
             InitializeComponent();
             this.Children.Add(new DonorHome() { Title = "Home", Icon = "Homepage.png" });
-            this.Children.Add(new Settings() { Title = "Settings", Icon = "Notifications.png" });
+            this.Children.Add(new DonorNotifications() { Title = "Notifications", Icon = "Notifications.png" });
+            this.Children.Add(new Settings() { Title = "Settings", Icon = "Sett.png" });
         }
     }
 }

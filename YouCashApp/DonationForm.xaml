@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:YouCashApp.CustomRenderer" 
+              xmlns:local="clr-namespace:YouCashApp.CustomRenderer" 
+               BackgroundColor="white"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="YouCashApp.DonationForm">
+    <StackLayout Padding="0" Margin="15,10" >
+
+        <Frame BackgroundColor="white" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="10">
+            <ScrollView>
+                <StackLayout Orientation="Vertical">
+
+                    <Frame>
+                        <Label Text="Donation Form" TextColor="white"  HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="25" Padding="10" Margin="0,0,0,0" />
+                        <Frame.Background>
+
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                                <GradientStop Color="#2E4159" Offset="0"/>
+                                <GradientStop Color="DarkRed"   Offset="0.9"/>
+                                <GradientStop Color="Crimson"   Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                    </Frame>
+                    <Label Text="Campaign Title" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,15,20,0"/>
+                    <controls:CustomEntry ReturnType="Next" x:Name="Cmpgntitle" Text="ABC DONATION DRIVE FOR FIRE VICTIMS" PlaceholderColor="Black"  TextColor="Black" IsReadOnly="True" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="1"></controls:CustomEntry>
+                    <Label Text="Description" TextColor="Crimson" HorizontalOptions="FillAndExpand"  FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                    <controls:CustomEntry ReturnType="Next" x:Name="Description" Text="Description of the Campaign" PlaceholderColor="Black"  TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="2" IsReadOnly="True"></controls:CustomEntry>
+                    <Label Text="Food Type" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                    <local:CustomPicker Title="Food Type" x:Name="foodType" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="3" SelectedIndex="1"  />
+                    <Label Text="Food Date Expiry" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                    <DatePicker x:Name="datePicker1" Format="MM-dd-yyyy" MinimumDate="01-01-1965" MaximumDate="01-01-2099" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand"  Margin="10,0,10,0" IsVisible="true" BackgroundColor="#E3E3E3"/>
+                    <Label Text="Campaign Location" TextColor="Crimson" HorizontalOptions="FillAndExpand"  FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                    <controls:CustomEntry  x:Name="CmpgnLoc" Text="Campaign Drive Located" TextColor="Black" PlaceholderColor="Black"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" IsReadOnly="True"></controls:CustomEntry>
+                    <Label Text="Transport Method" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                    <local:CustomPicker Title="Select type" x:Name="transpo" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="3" SelectedIndex="1"  ></local:CustomPicker>
+                    <Label Text="Donation Pick-up Date" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                    <DatePicker x:Name="datePicker" Format="MM-dd-yyyy" MinimumDate="01-01-1965" MaximumDate="01-01-2099" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand"  Margin="10,0,10,0" IsVisible="true" BackgroundColor="#E3E3E3"/>
+                    <Button Text="SUBMIT" BackgroundColor="#00b6c6" TextColor="White" CornerRadius="15" Margin="10,15,20,15"/>
+                </StackLayout>
+                    
+            </ScrollView>
+        </Frame>
+
+    </StackLayout>
+
+    
+</ContentPage>
