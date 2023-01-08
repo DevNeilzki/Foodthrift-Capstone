@@ -29,26 +29,22 @@
                                     <Frame BackgroundColor="white" BorderColor="Black"  Padding="5" Margin="0,0,0,5" HasShadow="False">
                                         <Grid Padding="10"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="0" />
-                                                <RowDefinition Height="40" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="auto" />
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                   <Label Grid.Row="1" 
-                                   Text="{Binding Email}"
-                                   TextColor="Black"
-                                   FontSize="14"
-                                   TextTransform="Uppercase"
-                                   HorizontalOptions="CenterAndExpand"
-                                   FontAttributes="Bold" />
-                                   <Label Grid.Row="1" 
-                                   TextColor="Black"
-                                   Text="{Binding Password}"
-                                   FontSize="14"
-                                   VerticalOptions="End" />
-                                   </Grid>
+                                            <Label Grid.Row="0" 
+                                        TextColor="Black"
+                                        Text="{Binding Description}"
+                                        VerticalOptions="End" />
+
+                                            <Label Grid.Row="2"
+                                        TextColor="Black"  
+                                        Text="{Binding Date}" />
+                                        </Grid>
                                     </Frame>
                                 </ViewCell>
                             </DataTemplate>
@@ -60,7 +56,7 @@
             
         </Frame>
 
-      
+        <Entry x:Name="UserSaveData" IsVisible="false" IsEnabled="false"></Entry>
     </StackLayout>
   
 </ContentPage>

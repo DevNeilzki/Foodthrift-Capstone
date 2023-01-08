@@ -13,6 +13,12 @@ namespace YouCashApp
         public MainPage()
         {
             InitializeComponent();
+            if (Application.Current.Properties.ContainsKey("UserName"))
+            {
+                var data = Application.Current.Properties["UserName"].ToString();
+                LblDIsplay.Text = data;
+            }
+
             this.BindingContext = this;
         }
         public List<Cash> CashList { get => CashData(); }

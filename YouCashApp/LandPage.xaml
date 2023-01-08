@@ -44,7 +44,7 @@
             </CarouselView>
             <IndicatorView x:Name="LandingIndicator" Grid.Row="1" IndicatorsShape="Circle"
                            IndicatorColor="#B8B8B8B8" SelectedIndicatorColor="#E7305E"/>
-          
+
             <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="20" VerticalOptions="End">
                 <Button Text="Donors" Command="{Binding RegisterCommand}" HeightRequest="50" WidthRequest="145"
                         BackgroundColor="#e7305e" TextColor="White" CornerRadius="25" FontAttributes="Bold" Clicked="Button_Clicked"/>
@@ -55,5 +55,16 @@
         </Grid>
 
         <Label Text="© Foodthrift Inc. 2022" TextColor="LightGreen" HorizontalOptions="Center" Margin="10, 15"  VerticalOptions="End"/>
+        
+        <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       Scale="1.5"
+                       Color="red"  
+                       BackgroundColor="Transparent"/>
+
     </Grid>
 </ContentPage>

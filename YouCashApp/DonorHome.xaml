@@ -33,40 +33,64 @@
 
 
             <ListView ItemsSource="{Binding Monkeys}"  x:Name="lstPersons" ItemTapped="OnCampaignTapped"
-                  HasUnevenRows="true" SelectedItem="{Binding Email}" Margin="0,150,0,0">
+                  HasUnevenRows="true" SelectedItem="{Binding Title}" Margin="0,150,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate >
                     <DataTemplate>
                         <ViewCell>
                             <Frame BackgroundColor="white" BorderColor="Black"  Padding="5" Margin="0,0,0,5" HasShadow="False">
-                                <Grid Padding="10" HeightRequest="200" HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+                                <Grid Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
                                     </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
                                     <Image Grid.Row="0" 
                                     Source="https://console.kr-asia.com/wp-content/uploads/2020/07/Indonesia_mobile_wallet.png" 
                                     Aspect="AspectFill" 
                                     Margin="0"
-                                    HeightRequest="100"  
-                                    WidthRequest="330"  
                                     Opacity="0.7"/>
-                                    <Entry Grid.Row="1" 
-                                   Text="{Binding Email}"
+                                    <Label Grid.Row="1" 
+                                   Text="{Binding ReqTitle}"
                                    x:Name="display"
                                    TextColor="Black"
                                    FontSize="20"
                                    TextTransform="Uppercase"
                                    HorizontalOptions="CenterAndExpand"
                                    FontAttributes="Bold" />
-                                    <Label Grid.Row="1" 
-                                   TextColor="Black"
-                                   Text="{Binding Password}"
-                                   VerticalOptions="End" />
-                                    <Button Grid.Row="2" Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="See more"  Clicked="Button_Clicked"/>
+                                    <Grid Grid.Row="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0" />
+                                            <ColumnDefinition Width="100" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="1" Grid.Column="1"
+                                        TextColor="Black"
+                                        Text="Item Needed:"
+                                        TextTransform="Uppercase"
+                                        VerticalOptions="Start" />
+                                        <Label Grid.Row="1" Grid.Column="2"
+                                        TextColor="Black"
+                                        Text="{Binding ItemNeeded}"
+                                        VerticalOptions="End" />
+                                        <Label Grid.Row="2" Grid.Column="1"
+                                        TextColor="Black"
+                                        Text="Beneficiary Name:"
+                                        TextTransform="Uppercase"
+                                        VerticalOptions="Start" />
+                                        <Label Grid.Row="2" Grid.Column="2"
+                                        TextColor="Black"  
+                                        Text="{Binding BenefName}" />
+                                        <Label Grid.Row="3" Grid.Column="1"
+                                        TextColor="Black"
+                                        Text="Date Needed:"
+                                        TextTransform="Uppercase"
+                                        VerticalOptions="Start" />
+                                        <Label Grid.Row="3" Grid.Column="2"
+                                        TextColor="Black"  
+                                        Text="{Binding DateNeeded}" />
+                                    </Grid>
                                 </Grid>
                             </Frame>
                         </ViewCell>

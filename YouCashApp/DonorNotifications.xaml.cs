@@ -13,7 +13,7 @@ namespace YouCashApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DonorNotifications : ContentPage
     {
-        FirebaseHelper firebaseHelper = new FirebaseHelper();
+        FirebaseNotificationDonor firebaseHelper = new FirebaseNotificationDonor();
         public IList<Monkey> Monkeys { get; private set; }
         public DonorNotifications()
         {
@@ -143,8 +143,12 @@ namespace YouCashApp
 
         protected async override void OnAppearing()
         {
+            if (Application.Current.Properties.ContainsKey("UserName"))
+            {
+                UserSaveData.Text = Application.Current.Properties["UserName"].ToString();
+            }
             base.OnAppearing();
-            var allPersons = await firebaseHelper.GetAllPersons();
+            var allPersons = await firebaseHelper.GetAllNotifs(UserSaveData.Text);
             lstPersons.ItemsSource = allPersons;
         }
         void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -156,5 +160,17 @@ namespace YouCashApp
         {
             Monkey tappedItem = e.Item as Monkey;
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                    await Navigation.PopAsync();
+            });
+
+            return true;
+        }
+
+
     }
 }

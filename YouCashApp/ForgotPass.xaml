@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              NavigationPage.HasNavigationBar="false" 
-             x:Class="YouCashApp.Beneficiary">
+             x:Class="YouCashApp.ForgotPass">
     <Grid>
-        <xct:MediaElement x:Name="BgVideo" Source="ms-appx:///beneficiarybg.mp4" ShowsPlaybackControls="False"
+        <xct:MediaElement x:Name="BgVideo" Source="ms-appx:///donorbg.mp4" ShowsPlaybackControls="False"
                       IsLooping="True" Aspect="AspectFill" AutoPlay="True"
                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
@@ -27,7 +27,7 @@
 
                 <StackLayout>
                     <StackLayout Margin="10">
-                        <Label x:Name="Border" Text="Welcome to Beneficiary Portal" TextColor="white" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="16"/>
+                        <Label x:Name="Border" Text="FORGOT PASSWORD" TextColor="white" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="18"/>
                     </StackLayout>
 
                     <StackLayout Padding="0" Margin="15,10">
@@ -38,43 +38,19 @@
                                     <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
                                 </Frame>
 
-                                <Entry ReturnType="Next" x:Name="email" Placeholder="Email" TextColor="White" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TabIndex="1" />
+                                <Entry ReturnType="Next" x:Name="email" Placeholder="Email" TextColor="#00b6c6" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TabIndex="1" Keyboard="Email"/>
                             </StackLayout>
                         </Frame>
 
-                        <Frame BackgroundColor="Gray" BorderColor="Black" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                            <StackLayout Orientation="Horizontal">
-                                <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                    <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
-                                </Frame>
-
-                                <Entry  x:Name="Passwd" Placeholder="Password" IsPassword="True" TextColor="White" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TabIndex="2" />
-                            </StackLayout>
-                        </Frame>
-
-                        <StackLayout  Orientation="Horizontal">
-
-                            <Label Text="Forgot Password?" TextColor="#00b6c6" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="20,0,0,0" >
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnLabelTapped" />
-                                </Label.GestureRecognizers>
-                            </Label>
-
-
-                        </StackLayout>
-
-                        <Button Text="SIGN IN" BackgroundColor="#00b6c6" TextColor="White" CornerRadius="30" Clicked="OnButtonClicked" />
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                            <Label Text="Still Not Connected ?" TextColor="DarkGray" FontSize="Small" Margin="0,14,0,0"/>
-                            <Button Text="Sign Up" TextColor="#00b6c6" BorderColor="Transparent" BackgroundColor="Transparent" FontAttributes="Bold" FontSize="Small" Clicked="Button_Clicked" />
-
-                        </StackLayout>
-
+                        <Button Text="Reset Password" BackgroundColor="#00b6c6" TextColor="White" CornerRadius="30" Clicked="OnButtonClicked" />
 
                     </StackLayout>
-                </StackLayout>
-            </Frame>
 
+
+                </StackLayout>
+
+            </Frame>
+           
 
         </Grid>
         <ActivityIndicator x:Name="activity"  
@@ -88,4 +64,5 @@
                        BackgroundColor="Transparent"/>
         <Label Text="© Foodthrift Inc. 2022" TextColor="LightGreen" HorizontalOptions="Center" Margin="10, 15"  VerticalOptions="End"/>
     </Grid>
+
 </ContentPage>

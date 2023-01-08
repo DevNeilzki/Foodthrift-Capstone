@@ -34,6 +34,12 @@ namespace YouCashApp
                         await App.Current.MainPage.DisplayAlert("Login Success", "Welcome to Youcash!", "Ok");
                         //Navigate to Wellcom page after successfuly login    
                         //pass user email to welcom page    
+
+                        if (!App.Current.Properties.ContainsKey("UserName"))
+                            App.Current.Properties.Add("UserName", email.Text);
+                        App.Current.Properties["UserName"] = email.Text;
+                        await App.Current.SavePropertiesAsync();
+
                         await Navigation.PushAsync(new MainPage());
                     }
                     else
@@ -61,8 +67,6 @@ namespace YouCashApp
             });
 
             return true;
-
-
         }
     }
 }

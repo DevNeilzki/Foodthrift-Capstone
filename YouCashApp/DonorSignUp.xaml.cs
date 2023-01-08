@@ -15,23 +15,17 @@ namespace YouCashApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class SignUp : ContentPage
+    public partial class DonorSignUp : ContentPage
     {
-        UserAuth _userauth = new UserAuth();
+        DonorAuth _userauth = new DonorAuth();
         FirebaseHelper firebaseHelper = new FirebaseHelper();
-        public SignUp()
+        public DonorSignUp()
         {
             InitializeComponent();
-
-            Acctype.ItemsSource = new List<string> {
-            "Individual",
-            "Organization"
-            };
         }
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
-            var acctype = Acctype.SelectedItem.ToString();
             var email = txtId.Text;
             var password = txtName.Text;
 
@@ -50,7 +44,7 @@ namespace YouCashApp
                         if (isSave)
                         {
                             await DisplayAlert("Registration Success", "Check Your Email to Activate your Account", "OK");
-                            await firebaseHelper.AddPerson(txtId.Text, txtName.Text, txtUser.Text, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Basic User", acctype, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Yes");
+                            await firebaseHelper.AddDonor(txtId.Text, txtName.Text, txtUser.Text, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Yes");
                             txtId.Text = string.Empty;
                             txtName.Text = string.Empty;
                             txtUser.Text = string.Empty;
@@ -92,11 +86,11 @@ namespace YouCashApp
             }
 
             //await firebaseHelper.AddPerson(txtId.Text, txtName.Text);
-           // txtId.Text = string.Empty;
+            // txtId.Text = string.Empty;
             //txtName.Text = string.Empty;
-           // await DisplayAlert("Success", "Person Added Successfully", "OK");
-           // var allPersons = await firebaseHelper.GetAllPersons();
-           // lstPersons.ItemsSource = allPersons;
+            // await DisplayAlert("Success", "Person Added Successfully", "OK");
+            // var allPersons = await firebaseHelper.GetAllPersons();
+            // lstPersons.ItemsSource = allPersons;
         }
 
         protected override bool OnBackButtonPressed()

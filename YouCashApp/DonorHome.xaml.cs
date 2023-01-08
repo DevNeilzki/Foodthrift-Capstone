@@ -14,7 +14,7 @@ namespace YouCashApp
     public partial class DonorHome : ContentPage
     {
 
-        FirebaseHelper firebaseHelper = new FirebaseHelper();
+        FirebaseCampaign firebaseHelper = new FirebaseCampaign();
         public IList<Monkey> Monkeys { get; private set; }
         public DonorHome()
         {
@@ -143,7 +143,6 @@ namespace YouCashApp
         }
         protected async override void OnAppearing()
         {
-
             base.OnAppearing();
             var allPersons = await firebaseHelper.GetAllPersons();
             lstPersons.ItemsSource = allPersons;
@@ -151,7 +150,7 @@ namespace YouCashApp
 
         async void OnCampaignTapped(object sender, ItemTappedEventArgs e)
         {
-            Person selection = (Person)e.Item;
+            CampaignDB selection = (CampaignDB)e.Item;
             await Navigation.PushAsync(new CampaignView(selection));
         }
 
@@ -166,6 +165,20 @@ namespace YouCashApp
         private void Button_Clicked(object sender, EventArgs e)
         {
            // await Navigation.PushAsync(new CampaignView());//
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var ans = await DisplayAlert("Question?", "Back to Homepage?", "Yes", "No");
+                if (ans == true)
+                {
+                    await Navigation.PopAsync();
+                }
+            });
+
+            return true;
         }
 
     }

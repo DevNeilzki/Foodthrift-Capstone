@@ -4,7 +4,7 @@
               BackgroundColor="white"
               NavigationPage.HasNavigationBar="false"
              x:Class="YouCashApp.CampaignView">
-
+    <Grid>
     <StackLayout Padding="0" Margin="15,10" >
 
         <Frame BackgroundColor="white" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="10">
@@ -23,25 +23,25 @@
                         </Frame.Background>
                     </Frame>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                    <Label x:Name="lblTitle" Text="{Binding Email}" TextColor="Black" FontSize="20" TextTransform="Uppercase" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label x:Name="lblTitle" Text="{Binding Title}"  TextColor="Black" FontSize="20" TextTransform="Uppercase" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                    <Label Text="Description" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
-                    <Label TextColor="Black" Text="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10,0,20,0" />
+                    <Label  Text="Description" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle1" TextColor="Black" Text="{Binding Description}" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10,0,20,0" />
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                    <Label Text="Campaign Drive Duration (START)" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"   Margin="10,0,20,0"/>
-                    <Label TextColor="Black" Text="Campaign Drive Start" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
+                    <Label  Text="Campaign Drive Duration (START)" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"   Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle2" TextColor="Black" Text="{Binding DriveStart}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
                     <Label Text="Campaign Drive Duration (END)" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"   Margin="10,0,20,0"/>
-                    <Label TextColor="Black" Text="Campaign Drive END" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle3" TextColor="Black" Text="{Binding DriveEnd}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
                     <Label Text="Capaign Location" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
-                    <Label x:Name="lblTitle2" TextColor="Black" Text="{Binding Password}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle4" TextColor="Black" Text="{Binding Location}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
                     <Label Text="Campaign Target" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
-                    <Label TextColor="Black" Text="Target" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0" />
+                    <Label  x:Name="lblTitle5" TextColor="Black" Text="{Binding Target}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0" />
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,15,20,0"/>
 
-                    <Button Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="Donate Now!" Margin="10,0,20,0"/>
+                    <Button Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="Donate Now!" Margin="10,0,20,0" Clicked="Button_Clicked" />
 
                     <Label Text="© Foodthrift Inc. 2022" TextColor="DarkRed" HorizontalOptions="Center" Margin="10, 15"  VerticalOptions="EndAndExpand"/>
 
@@ -51,4 +51,14 @@
         </Frame>
 
     </StackLayout>
+        <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       Scale="1.5"
+                       Color="red"  
+                       BackgroundColor="Transparent"/>
+    </Grid>
 </ContentPage>

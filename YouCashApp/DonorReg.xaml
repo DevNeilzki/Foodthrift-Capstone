@@ -38,7 +38,7 @@
                                     <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
                                 </Frame>
 
-                                <Entry ReturnType="Next" x:Name="email" Placeholder="Email" TextColor="#00b6c6" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TabIndex="1"/>
+                                <Entry ReturnType="Next" x:Name="email" Placeholder="Email" TextColor="White" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TabIndex="1" Keyboard="Email"/>
                             </StackLayout>
                         </Frame>
 
@@ -48,16 +48,17 @@
                                     <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                 </Frame>
 
-                                <Entry  x:Name="Passwd" Placeholder="Password" IsPassword="True" TextColor="#00b6c6" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TabIndex="2"/>
+                                <Entry  x:Name="Passwd" Placeholder="Password" IsPassword="True" TextColor="White" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" TabIndex="2"/>
                             </StackLayout>
                         </Frame>
 
                         <StackLayout  Orientation="Horizontal">
-                            <CheckBox IsChecked="False" Color="#00b6c6" />
-                            <Label Text="Remember me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
-                            <Label Text="Forgot Password" TextColor="#00b6c6" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-
+                            <Label Text="Forgot Password?" TextColor="#00b6c6" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="20,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLabelTapped" />
+                            </Label.GestureRecognizers>
+                            </Label>
 
                         </StackLayout>
 
@@ -66,24 +67,6 @@
                             <Label Text="Still Not Connected ?" TextColor="DarkGray" FontSize="Small" Margin="0,14,0,0"/>
                             <Button Text="Sign Up" TextColor="#00b6c6" BorderColor="Transparent" BackgroundColor="Transparent" FontAttributes="Bold" FontSize="Small" Clicked="Button_Clicked" />
 
-                        </StackLayout>
-
-                        <StackLayout Margin="0,25,0,0" Padding="0">
-                            <Grid>
-                                <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
-                                    <Label Text="OR" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                                </Frame>
-                            </Grid>
-                        </StackLayout>
-
-                        <StackLayout Margin="0,25" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                            <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
-                                <Image Source="fb.png" Aspect="AspectFill" Margin="0"/>
-                            </Frame>
-                            <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
-                                <Image Source="https://blog.hubspot.com/hubfs/image8-2.jpg" Aspect="AspectFill" Margin="0"/>
-                            </Frame>
                         </StackLayout>
 
                     </StackLayout>
@@ -95,7 +78,15 @@
            
 
         </Grid>
-
+        <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       Scale="1.5"
+                       Color="red"  
+                       BackgroundColor="Transparent"/>
         <Label Text="© Foodthrift Inc. 2022" TextColor="LightGreen" HorizontalOptions="Center" Margin="10, 15"  VerticalOptions="End"/>
     </Grid>
 

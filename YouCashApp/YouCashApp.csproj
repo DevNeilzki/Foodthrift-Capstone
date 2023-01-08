@@ -4,33 +4,69 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <ApplicationIcon>youcash-social copy.ico</ApplicationIcon>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <PackageId>FoodThrift</PackageId>
+    <Authors>FoodThrift</Authors>
+    <Company>FoodThrift Inc.</Company>
+    <Product>FoodThrift Donation App</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="youcash-social copy.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="BenefProfile.xaml" />
     <None Include="DonationForm.xaml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
+    <PackageReference Include="FirebaseAdmin" Version="2.3.0" />
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
     <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DonorProfile.xaml.cs">
+      <DependentUpon>DonorProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Update="DonateForm.xaml.cs">
       <DependentUpon>DonateForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ForgotPass2.xaml.cs">
+      <DependentUpon>ForgotPass2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ForgotPass.xaml.cs">
+      <DependentUpon>ForgotPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="DonorSignUp.xaml.cs">
+      <DependentUpon>DonorSignUp.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Beneficiary.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BenefProfile.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="BenefSettings.xaml">

@@ -7,18 +7,18 @@ using YouCashApp.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YouCashApp.Helper;
+using static Android.Icu.Text.CaseMap;
 
 namespace YouCashApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
-        FirebaseHelper firebaseHelper = new FirebaseHelper();
+        FirebaseCampaign firebaseHelper = new FirebaseCampaign();
         public IList<Monkey> Monkeys { get; private set; }
         public Home()
         {
             InitializeComponent();
-
             Monkeys = new List<Monkey>();
             Monkeys.Add(new Monkey
             {
@@ -162,12 +162,26 @@ namespace YouCashApp
 
         async void OnCampaignTapped(object sender, ItemTappedEventArgs e)
         {
-            Person selection = (Person)e.Item;
+            CampaignDB selection = (CampaignDB)e.Item;
             await Navigation.PushAsync(new CampaignOV(selection));
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
            // await Navigation.PushAsync(new CampaignOV());//
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                var _navigation = Application.Current.MainPage.Navigation;
+                var _lastPage = _navigation.NavigationStack.LastOrDefault();
+                await Navigation.PopAsync();
+               // await Navigation.PushAsync(new LandPage());
+
+            });
+
+            return true;
         }
     }
 }

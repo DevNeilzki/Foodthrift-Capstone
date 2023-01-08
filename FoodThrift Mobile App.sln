@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32510.428
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouCashApp.Android", "YouCashApp.Android\YouCashApp.Android.csproj", "{B3948A76-EA23-4D8D-9246-2FCFF7019685}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouCashApp.iOS", "YouCashApp.iOS\YouCashApp.iOS.csproj", "{556716A5-2350-4B4E-BF41-1AFEFD1042FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouCashApp", "YouCashApp\YouCashApp.csproj", "{E2B7372A-85BC-4B64-8C85-3F868B39F799}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YouCashApp", "YouCashApp\YouCashApp.csproj", "{E2B7372A-85BC-4B64-8C85-3F868B39F799}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

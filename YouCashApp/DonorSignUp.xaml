@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:YouCashApp.CustomRenderer"
-             x:Class="YouCashApp.SignUp" 
-               xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              xmlns:vm="clr-namespace:YouCashApp"
+             x:Class="YouCashApp.DonorSignUp" 
              NavigationPage.HasNavigationBar="false" >
 
     <ContentPage.BindingContext>
@@ -62,12 +62,6 @@
                         <local:CustomEntry />
                     </StackLayout>
                 </Frame>
-                <Frame BackgroundColor="Gray" BorderColor="Black" Margin="0,5,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-
-                    <StackLayout>
-                        <Picker Title="Account Type" x:Name="Acctype" TitleColor="White" TextColor="white" HorizontalOptions="FillAndExpand" Margin="10,0,10,0"  TabIndex="3"  SelectedIndex="1"  />
-                    </StackLayout>
-                </Frame>
 
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="100" Text="SIGN UP" Clicked="BtnAdd_Clicked" Margin="0,0,0,20"/>
@@ -88,4 +82,5 @@
                        BackgroundColor="Transparent"/>
 
     </Grid>
+
 </ContentPage>

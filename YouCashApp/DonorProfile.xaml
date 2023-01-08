@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:controls="clr-namespace:YouCashApp.CustomRenderer" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     NavigationPage.HasNavigationBar="false"
+             x:Class="YouCashApp.DonorProfile">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+            <Frame BackgroundColor="white" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <StackLayout Orientation="Vertical">
+
+                        <Frame  x:Name="myframe">
+                        <Label Text="PROFILE" TextColor="white" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="18" Padding="0"  />
+                        <Frame.Background>
+
+                            <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                                <GradientStop Color="#2E4159" Offset="0"/>
+                                <GradientStop Color="DarkRed"   Offset="0.9"/>
+                                <GradientStop Color="Crimson"   Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                    </Frame>
+                        <ScrollView>
+                            <StackLayout Orientation="Vertical">
+                                <Button x:Name="btnEdit" Text="Edit" BackgroundColor="Transparent" TextColor="Black" VerticalOptions="End" HeightRequest = "30" WidthRequest = "50" HorizontalOptions="End" FontSize="9" CornerRadius="5" BorderColor="Black" BorderWidth="1" Margin="0,0,10,0" Clicked="BtnAdd_Clicked"/>
+
+                                <Image Source="user.png"  WidthRequest = "150"  HorizontalOptions="Center" />
+
+                                <Label x:Name="lblUser" Grid.Row="1" Grid.Column="2" TextColor="Black" FontSize="Medium" TextTransform="Uppercase" HorizontalOptions="Center" VerticalOptions="End" />
+                                <BoxView   VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="1" WidthRequest="50" Color="#5b5d68" Margin="15,10,15,10"/>
+
+                                <Label Text="First Name" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                <controls:CustomEntry ReturnType="Next"  x:Name="Fname" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="1" IsReadOnly="True"></controls:CustomEntry>
+                                <Label Text="Last Name" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                <controls:CustomEntry ReturnType="Next"  x:Name="Lname" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="2" IsReadOnly="True"></controls:CustomEntry>
+                                <Label Text="Email" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                <controls:CustomEntry ReturnType="Next"  x:Name="Email" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="3" IsReadOnly="True"></controls:CustomEntry>
+                                <Label Text="Password" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                <controls:CustomEntry ReturnType="Next"  x:Name="Pass" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="4" IsReadOnly="True"></controls:CustomEntry>
+                                <Label Text="Address" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                <controls:CustomEntry ReturnType="Next"  x:Name="Entryadd" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="1" IsReadOnly="True"></controls:CustomEntry>
+                                <Label Text="Contact #" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                <controls:CustomEntry ReturnType="Next"   x:Name="EntryContct" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="5" IsReadOnly="True" Keyboard="Numeric"></controls:CustomEntry>
+                                <Grid x:Name="orgsName">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Text="Business Name" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                    <controls:CustomEntry Grid.Row="1" ReturnType="Next"  x:Name="BusName" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="6" IsReadOnly="True"></controls:CustomEntry>
+                                    <Label Grid.Row="2" Text="Business Email" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                    <controls:CustomEntry Grid.Row="3" ReturnType="Next"  x:Name="BusEmail" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="7" IsReadOnly="True"></controls:CustomEntry>
+                                    <Label Text="Business Contact" Grid.Row="4" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                    <controls:CustomEntry ReturnType="Next" Grid.Row="5"  x:Name="BusContact" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="8" IsReadOnly="True"></controls:CustomEntry>
+                                    <Label Text="TIN" TextColor="Crimson" Grid.Row="6"  HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
+                                    <controls:CustomEntry ReturnType="Next" Grid.Row="7"  x:Name="TIN" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="9" IsReadOnly="True"></controls:CustomEntry>
+                                </Grid>
+                                <Button x:Name="btnSave" Text="SAVE" BackgroundColor="#00b6c6" TextColor="White" CornerRadius="15" Margin="10,15,10,15" HorizontalOptions="FillAndExpand" IsVisible="False" Clicked="BtnSave_Clicked"/>
+                                <Label Text="© Foodthrift Inc. 2022" TextColor="DarkRed" HorizontalOptions="Center" Margin="10, 15"  VerticalOptions="EndAndExpand" />
+                           
+                            
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+
+            </Frame>
+
+            <Entry x:Name="UserSaveData" IsVisible="false" IsEnabled="false"></Entry>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
