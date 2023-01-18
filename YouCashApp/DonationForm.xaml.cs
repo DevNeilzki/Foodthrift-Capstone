@@ -134,11 +134,17 @@ namespace YouCashApp
                             CmpgnDesc.Text = string.Empty;
                             BeneficiaryName.Text = string.Empty;
                             await DisplayAlert("Success", "Donated Successfully", "OK");
+                            activity.IsEnabled = false;
+                            activity.IsRunning = false;
+                            activity.IsVisible = false;
                             await Navigation.PopAsync();
                         }
                         else
                         {
                             await DisplayAlert("Failure", "Donation Failed", "OK");
+                            activity.IsEnabled = false;
+                            activity.IsRunning = false;
+                            activity.IsVisible = false;
                             await Navigation.PopAsync();
                         }
                     }
@@ -147,6 +153,9 @@ namespace YouCashApp
             catch(Exception )
             {
                 await DisplayAlert("Warning", "FoodType and Transportation Method must not be empty", "OK");
+                activity.IsEnabled = false;
+                activity.IsRunning = false;
+                activity.IsVisible = false;
                 await Navigation.PopAsync();
             }
             
@@ -160,6 +169,9 @@ namespace YouCashApp
                 var ans = await DisplayAlert("Question?", "Back to Homepage?", "Yes", "No");
                 if (ans == true)
                 {
+                    activity.IsEnabled = false;
+                    activity.IsRunning = false;
+                    activity.IsVisible = false;
                     await Navigation.PopAsync();
                 }
             });

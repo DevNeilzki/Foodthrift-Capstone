@@ -110,6 +110,9 @@ namespace YouCashApp
                 var ans = await DisplayAlert("Question?", "Back to Login Page?", "Yes", "No");
                 if (ans == true)
                 {
+                    activity.IsEnabled = false;
+                    activity.IsRunning = false;
+                    activity.IsVisible = false;
                     await Navigation.PopAsync();
                 }
             });

@@ -164,6 +164,7 @@ namespace YouCashApp
         {
             CampaignDB selection = (CampaignDB)e.Item;
             await Navigation.PushAsync(new CampaignOV(selection));
+
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
