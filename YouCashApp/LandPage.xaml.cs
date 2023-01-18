@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.App;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,28 +17,31 @@ namespace YouCashApp
         {
             InitializeComponent();
 
-           /* var LoginPage = new NavigationPage(new LandPage());
-            var DonorHomepage = new NavigationPage(new DonorHomepage());
-            var Homepage = new NavigationPage(new Homepage());
+            /* var LoginPage = new NavigationPage(new LandPage());
+             var DonorHomepage = new NavigationPage(new DonorHomepage());
+             var Homepage = new NavigationPage(new Homepage());
 
-            var loginStatus = Preferences.Get("loginStatus", "0");
-            var loginStatus2 = Preferences.Get("loginStatus2", "0");
-            if (loginStatus == "0" || loginStatus2 == "0")
-            {
-                Application.Current.MainPage = LoginPage;
-            }
-            else if (loginStatus == "1")
-            {
-                Application.Current.MainPage = DonorHomepage;
-            }
-            else if (loginStatus2 == "1")
-            {
-                Application.Current.MainPage = Homepage;
-            }
-            else
-            {
-                // do nothing
-            }*/
+             var loginStatus = Preferences.Get("loginStatus", "0");
+             var loginStatus2 = Preferences.Get("loginStatus2", "0");
+             if (loginStatus == "0" || loginStatus2 == "0")
+             {
+                 Application.Current.MainPage = LoginPage;
+             }
+             else if (loginStatus == "1")
+             {
+                 Application.Current.MainPage = DonorHomepage;
+             }
+             else if (loginStatus2 == "1")
+             {
+                 Application.Current.MainPage = Homepage;
+             }
+             else
+             {
+                 // do nothing
+             }*/
+            activity.IsEnabled = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
 
         }
         private async void Button_Clicked(object sender, EventArgs e)
@@ -47,6 +51,9 @@ namespace YouCashApp
             activity.IsVisible = true;
             await Task.Delay(3000);
             await Navigation.PushAsync(new DonorReg());
+            activity.IsEnabled = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
         }
         private async void Button2_Clicked(object sender, EventArgs e)
         {
@@ -55,6 +62,9 @@ namespace YouCashApp
             activity.IsVisible = true;
             await Task.Delay(3000);
             await Navigation.PushAsync(new Beneficiary());
+            activity.IsEnabled = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
         }
 
         protected override bool OnBackButtonPressed()

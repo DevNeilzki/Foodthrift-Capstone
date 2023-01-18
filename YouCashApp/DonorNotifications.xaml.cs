@@ -13,7 +13,7 @@ namespace YouCashApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DonorNotifications : ContentPage
     {
-        FirebaseNotificationDonor firebaseHelper = new FirebaseNotificationDonor();
+        FirebaseNotification firebaseHelper = new FirebaseNotification();
         public IList<Monkey> Monkeys { get; private set; }
         public DonorNotifications()
         {

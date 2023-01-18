@@ -9,6 +9,7 @@ using YouCashApp.Helper;
 using YouCashApp.Model;
 using System.Net.Mail;
 using Firebase.Auth;
+using Android.App;
 
 
 namespace YouCashApp
@@ -27,6 +28,10 @@ namespace YouCashApp
             "Individual",
             "Organization"
             };
+
+            activity.IsEnabled = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
         }
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
@@ -49,12 +54,19 @@ namespace YouCashApp
                         bool isSave = await _userauth.Register(email, password);
                         if (isSave)
                         {
+                            activity.IsEnabled = true;
+                            activity.IsRunning = true;
+                            activity.IsVisible = true;
                             await DisplayAlert("Registration Success", "Check Your Email to Activate your Account", "OK");
-                            await firebaseHelper.AddPerson(txtId.Text, txtName.Text, txtUser.Text, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Basic User", acctype, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Yes");
+                            await firebaseHelper.AddPerson(txtId.Text, txtName.Text, txtUser.Text, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Basic User", acctype, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Yes", "Active");
                             txtId.Text = string.Empty;
                             txtName.Text = string.Empty;
                             txtUser.Text = string.Empty;
+                            activity.IsEnabled = false;
+                            activity.IsRunning = false;
+                            activity.IsVisible = false;
                             await Navigation.PopAsync();
+
 
                         }
                         else

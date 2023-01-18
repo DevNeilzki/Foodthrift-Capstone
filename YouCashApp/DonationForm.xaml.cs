@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.App;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -31,6 +32,10 @@ namespace YouCashApp
             "Pick-Up",
             "Delivery"
             };
+
+            activity.IsEnabled = false;
+            activity.IsRunning = false;
+            activity.IsVisible = false;
         }
 
         public async void checkExpiry()
@@ -75,6 +80,11 @@ namespace YouCashApp
         {
             try
             {
+                var allPersons = await firebaseHelper3.GetAllPerson();
+
+                int counter = allPersons.Count;
+
+
                 var statusDonation = "";
                 var date = datePicker1.Date.ToString();
             var date2 = datePicker.Date.ToString();
@@ -92,9 +102,9 @@ namespace YouCashApp
                 }
                 else
                 {
-                    if (Application.Current.Properties.ContainsKey("UserName"))
+                    if (Xamarin.Forms.Application.Current.Properties.ContainsKey("UserName"))
                     {
-                        UserSaveData.Text = Application.Current.Properties["UserName"].ToString();
+                        UserSaveData.Text = Xamarin.Forms.Application.Current.Properties["UserName"].ToString();
                     }
                     if(datePicker1.Date < DateTime.Today)
                     {
@@ -118,7 +128,7 @@ namespace YouCashApp
                         if (isSave)
                         {
                             var desc = UserSaveData.Text + " donated to your Donation Request for " + BeneficiaryName.Text;
-                            await firebaseHelper3.AddPerson(UserSaveData.Text, desc, PostedBy.Text, DateTime.Now.ToString());
+                            await firebaseHelper3.AddPerson(counter,UserSaveData.Text, desc, PostedBy.Text, DateTime.Now.ToString(), statusDonation);
                             ItemsDonate.Text = string.Empty;
                             BeneficiaryName.Text = string.Empty;
                             CmpgnDesc.Text = string.Empty;
