@@ -47,9 +47,6 @@ namespace YouCashApp
             activity.IsVisible = true;
             await Task.Delay(3000);
             await Navigation.PushAsync(new DonorReg());
-            activity.IsEnabled = false;
-            activity.IsRunning = false;
-            activity.IsVisible = false;
         }
         private async void Button2_Clicked(object sender, EventArgs e)
         {
@@ -58,9 +55,6 @@ namespace YouCashApp
             activity.IsVisible = true;
             await Task.Delay(3000);
             await Navigation.PushAsync(new Beneficiary());
-            activity.IsEnabled = false;
-            activity.IsRunning = false;
-            activity.IsVisible = false;
         }
 
         protected override bool OnBackButtonPressed()

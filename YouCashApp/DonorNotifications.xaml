@@ -20,6 +20,7 @@
                             </LinearGradientBrush>
                         </Frame.Background>
                     </Frame>
+
                     <ListView ItemsSource="{Binding Monkeys}" x:Name="lstPersons" 
                   HasUnevenRows="true" ItemSelected="OnListViewItemSelected">
                         <ListView.ItemTemplate >
@@ -28,7 +29,6 @@
                                     <Frame BackgroundColor="white" BorderColor="Black"  Padding="5" Margin="0,0,0,5" HasShadow="False">
                                         <Grid Padding="10"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
                                             </Grid.RowDefinitions>
@@ -40,25 +40,8 @@
                                         TextColor="Black"
                                         Text="{Binding Description}"
                                         VerticalOptions="End" />
-                                            <Grid Grid.Row="2">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="auto" />
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="auto" />
-                                                    <ColumnDefinition Width="100" />
-                                                </Grid.ColumnDefinitions>
-                                                <Label Grid.Row="0" Grid.Column="1"
-                                        TextColor="Black"
-                                        Text="Status:"
-                                        TextTransform="Uppercase"
-                                        VerticalOptions="Start" />
-                                                <Label Grid.Row="0" Grid.Column="2"
-                                        TextColor="Black"
-                                        Text="{Binding Status}"
-                                        VerticalOptions="End" />
-                                            </Grid>
-                                            <Label Grid.Row="3"
+
+                                            <Label Grid.Row="2"
                                         TextColor="Black"  
                                         Text="{Binding Date}" />
                                         </Grid>

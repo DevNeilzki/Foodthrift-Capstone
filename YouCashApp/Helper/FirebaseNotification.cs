@@ -14,33 +14,16 @@ namespace YouCashApp.Helper
     public class FirebaseNotification
     {
         FirebaseClient firebase = new FirebaseClient("https://youcash-9427e-default-rtdb.firebaseio.com/");
-
-        public async Task<List<NotifDB>> GetAllPerson()
-        {
-            return (await firebase
-              .Child("Notification")
-              .OnceAsync<NotifDB>()).Select(item => new NotifDB
-              {
-                  ID = item.Object.ID,
-                  Sender = item.Object.Sender,
-                  Description = item.Object.Description,
-                  Target = item.Object.Target,
-                  Date = item.Object.Date,
-                  Status = item.Object.Status
-              }).ToList();
-        }
         public async Task<List<NotifDB>> GetAllPersons(string target)
         {
             return (await firebase
               .Child("Notification")
               .OnceAsync<NotifDB>()).Select(item => new NotifDB
               {
-                  ID = item.Object.ID,
                   Sender = item.Object.Sender,
                   Description = item.Object.Description,
                   Target = item.Object.Target,
-                  Date = item.Object.Date,
-                  Status = item.Object.Status
+                  Date = item.Object.Date
               }).Where(a => a.Target == target).ToList();
         }
 
@@ -50,25 +33,24 @@ namespace YouCashApp.Helper
               .Child("Notification")
               .OnceAsync<NotifDB>()).Select(item => new NotifDB
               {
-                  ID = item.Object.ID,
                   Sender = item.Object.Sender,
                   Description = item.Object.Description,
                   Target = item.Object.Target,
-                  Date = item.Object.Date,
-                  Status = item.Object.Status
+                  Date = item.Object.Date
               }).Where(a => a.Sender == sender).ToList();
         }
 
-        public async Task AddPerson(int id, string sender, string desc, string targt, string date, string stats)
+        public async Task AddPerson(string sender, string desc, string targt, string date)
         {
+
             await firebase
               .Child("Notification")
-              .PostAsync(new NotifDB() { ID = id, Sender = sender, Description = desc, Target = targt, Date = date, Status = stats });
+              .PostAsync(new NotifDB() { Sender = sender, Description = desc, Target = targt, Date = date });
         }
 
 
 
-        public async Task UpdatePerson(int id, string sender, string desc, string targt, string date)
+        public async Task UpdatePerson(string sender, string desc, string targt, string date)
         {
             var toUpdatePerson = (await firebase
               .Child("Notification")
@@ -77,7 +59,7 @@ namespace YouCashApp.Helper
             await firebase
               .Child("Notification")
               .Child(toUpdatePerson.Key)
-              .PutAsync(new NotifDB() { ID = id, Sender = sender, Description = desc, Target = targt, Date = date });
+              .PutAsync(new NotifDB() { Sender = sender, Description = desc, Target = targt, Date = date });
         }
 
         public async Task DeletePerson(string sender)

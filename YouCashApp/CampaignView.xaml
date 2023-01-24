@@ -23,56 +23,25 @@
                         </Frame.Background>
                     </Frame>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                    <Label x:Name="lblTitle" Text="{Binding ReqTitle}"  TextColor="Black" FontSize="20" TextTransform="Uppercase" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    <Label x:Name="lblTitle" Text="{Binding Title}"  TextColor="Black" FontSize="20" TextTransform="Uppercase" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                    <Label  Text="Beneficiary Name" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
-                    <Label x:Name="lblTitle1" TextColor="Black" Text="{Binding BenefName}" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10,0,20,0" />
+                    <Label  Text="Description" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle1" TextColor="Black" Text="{Binding Description}" FontSize="16" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="10,0,20,0" />
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                    <Label  Text="Beneficiary Address" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"   Margin="10,0,20,0"/>
-                    <Label x:Name="lblTitle2" TextColor="Black" Text="{Binding BenefAdd}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
-                        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                        <Label Text="Description" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
-                    <Label x:Name="lblTitle4" TextColor="Black" Text="{Binding Description}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
+                    <Label  Text="Campaign Drive Duration (START)" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"   Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle2" TextColor="Black" Text="{Binding DriveStart}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
-                    <Label Text="Date Needed" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
-                    <Label x:Name="lblTitle5" TextColor="Black" Text="{Binding DateNeeded}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
+                    <Label Text="Campaign Drive Duration (END)" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"   Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle3" TextColor="Black" Text="{Binding DriveEnd}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
+                    <Label Text="Capaign Location" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
+                    <Label x:Name="lblTitle4" TextColor="Black" Text="{Binding Location}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,0,20,0"/>
+                    <Label Text="Campaign Target" TextColor="DarkRed" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"  Margin="10,0,20,0"/>
+                    <Label  x:Name="lblTitle5" TextColor="Black" Text="{Binding Target}" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0" />
                     <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,15,20,0"/>
-                        <Label x:Name="Comments" TextColor="Black" Text="COMMENTS" VerticalOptions="End"  FontSize="16" Margin="10,0,20,0"/>
-                        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,15,20,0"/>
-                        <ListView ItemsSource="{Binding Monkeys}" x:Name="lstPersons" 
-                  HasUnevenRows="true" HeightRequest="300" HorizontalOptions="FillAndExpand">
-                            <ListView.ItemTemplate >
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <Frame BackgroundColor="white" BorderColor="Black"  Padding="5" Margin="0,0,0,5" HasShadow="False">
-                                            <Grid Padding="10"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="auto" />
-                                                    <RowDefinition Height="auto" />
-                                                </Grid.RowDefinitions>
-                                                <Label Grid.Row="0" 
-                                        TextColor="Black"
-                                        Text="{Binding Email}"
-                                        VerticalOptions="End" />
-                                                <Label Grid.Row="1"
-                                        TextColor="Black"  
-                                        Text="{Binding Message}" />
-                                            </Grid>
-                                        </Frame>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
 
-
-                        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,15,20,0"/>
-
-                        <Editor x:Name="editComments" Keyboard="Plain" AutoSize="TextChanges" MaxLength="90" FontSize="14" BackgroundColor="lightgray" Placeholder="your message here" TextColor="Black" PlaceholderColor="black" HeightRequest="100" Margin="10,0"  HorizontalOptions="FillAndExpand"></Editor>
-
-                        <Button Grid.Column="0" WidthRequest="100" Text="Send Comment" Margin="10,0,20,0"  Clicked="btnSend_Clicked"/>
-
-                        <BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" Color="Gray" Margin="10,15,20,0"/>
-                        <Button Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="Donate Now!" Margin="10,0,20,0" Clicked="Button_Clicked" />
+                    <Button Grid.Column="0" x:Name="btnUpdate" WidthRequest="100" Text="Donate Now!" Margin="10,0,20,0" Clicked="Button_Clicked" />
 
                     <Label Text="© Foodthrift Inc. 2022" TextColor="DarkRed" HorizontalOptions="Center" Margin="10, 15"  VerticalOptions="EndAndExpand"/>
 
@@ -80,9 +49,8 @@
             </ScrollView>
 
         </Frame>
-            <Entry x:Name="UserSaveData" IsVisible="false" IsEnabled="false"></Entry>
-            <Entry x:Name="UserSaveData2" IsVisible="false" IsEnabled="false"></Entry>
-        </StackLayout>
+
+    </StackLayout>
         <ActivityIndicator x:Name="activity"  
                        IsRunning="False"  
                        IsEnabled="False"  

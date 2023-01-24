@@ -16,22 +16,12 @@ namespace YouCashApp
     public partial class CampaignView : ContentPage
     {
         FirebaseCampaign firebaseHelper = new FirebaseCampaign();
-        FirebaseComment firebaseHelper2 = new FirebaseComment();
         public CampaignView(CampaignDB data)
         {
             InitializeComponent();
             displaydata(data);
         }
-        protected async override void OnAppearing()
-        {
-            base.OnAppearing();
-            if (Application.Current.Properties.ContainsKey("UserName"))
-            {
-                UserSaveData.Text = Application.Current.Properties["UserName"].ToString();
-            }
-            var allPersons3 = await firebaseHelper2.GetAllComments(UserSaveData2.Text);
-            lstPersons.ItemsSource = allPersons3;
-        }
+
         public async void displaydata(CampaignDB display)
         {
             var text = display.ReqTitle;
@@ -41,6 +31,7 @@ namespace YouCashApp
                 lblTitle.Text = person.ReqTitle.ToString();
                 lblTitle1.Text = person.BenefName;
                 lblTitle2.Text = person.BenefAdd;
+                lblTitle3.Text = person.ItemNeeded;
                 lblTitle4.Text = person.Description;
                 lblTitle5.Text = person.DateNeeded;
             }
@@ -62,24 +53,6 @@ namespace YouCashApp
             });
 
             return true;
-        }
-        private async void btnSend_Clicked(object sender, EventArgs e)
-        {
-            if (Application.Current.Properties.ContainsKey("UserName"))
-            {
-                UserSaveData.Text = Application.Current.Properties["UserName"].ToString();
-            }
-            if(string.IsNullOrEmpty(editComments.Text))
-            {
-                await DisplayAlert("Warning", "Fill Up all the Details", "OK");
-            }
-            else
-            {
-                var allPersons = await firebaseHelper2.GetAllComments(UserSaveData2.Text);
-                int counter = allPersons.Count;
-
-                await firebaseHelper2.AddComment(counter, UserSaveData.Text, lblTitle.Text, editComments.Text);
-            }
         }
 
     }

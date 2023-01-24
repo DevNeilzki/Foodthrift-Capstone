@@ -33,8 +33,8 @@ namespace YouCashApp.Helper
                   BusinessEmail = item.Object.BusinessEmail,
                   BusinessContact = item.Object.BusinessContact,
                   BusinessTIN = item.Object.BusinessTIN,
-                  FirstLogin = item.Object.FirstLogin,
-                  Status = item.Object.Status
+                  FirstLogin = item.Object.FirstLogin
+
               }).ToList();
         }
 
@@ -56,23 +56,24 @@ namespace YouCashApp.Helper
                   BusinessEmail = item.Object.BusinessEmail,
                   BusinessContact = item.Object.BusinessContact,
                   BusinessTIN = item.Object.BusinessTIN,
-                  FirstLogin = item.Object.FirstLogin,
-                  Status = item.Object.Status
+                  FirstLogin = item.Object.FirstLogin
+
               }).ToList();
         }
-        public async Task AddPerson(string email, string password, string useracc, string fname, string lname, string add, string cntct, string subs, string acctype, string busname, string busemail, string buscontct, string busTIN, string firstlog, string stats)
+        public async Task AddPerson(string email, string password, string useracc, string fname, string lname, string add, string cntct, string subs, string acctype, string busname, string busemail, string buscontct, string busTIN, string firstlog)
         {
+
             await firebase
               .Child("Persons")
-              .PostAsync(new Person() { Email = email, Password = password, UserAcc = useracc, Fname = fname, Lname = lname, Address = add, Contact = cntct, Subscription = subs, AccType = acctype, BusinessName = busname, BusinessEmail = busemail, BusinessContact = buscontct, BusinessTIN = busTIN, FirstLogin = firstlog, Status = stats });
+              .PostAsync(new Person() { Email = email, Password = password, UserAcc = useracc, Fname = fname, Lname = lname, Address = add, Contact = cntct, Subscription = subs, AccType = acctype, BusinessName = busname, BusinessEmail = busemail, BusinessContact = buscontct, BusinessTIN = busTIN, FirstLogin = firstlog });
         }
 
-         public async Task AddDonor(string email, string password, string useracc, string fname, string lname, string add, string cntct, string busname, string busemail, string buscontct, string busTIN, string firstlog, string stats)
+         public async Task AddDonor(string email, string password, string useracc, string fname, string lname, string add, string cntct, string busname, string busemail, string buscontct, string busTIN, string firstlog)
         {
 
             await firebase
               .Child("Donor")
-              .PostAsync(new Person() { Email = email, Password = password, UserAcc = useracc, Fname = fname, Lname = lname, Address = add, Contact = cntct, BusinessName = busname, BusinessEmail = busemail, BusinessContact = buscontct, BusinessTIN = busTIN, FirstLogin = firstlog, Status = stats });
+              .PostAsync(new Person() { Email = email, Password = password, UserAcc = useracc, Fname = fname, Lname = lname, Address = add, Contact = cntct, BusinessName = busname, BusinessEmail = busemail, BusinessContact = buscontct, BusinessTIN = busTIN, FirstLogin = firstlog });
         }
 
         public async Task<Person> GetPerson(string email)

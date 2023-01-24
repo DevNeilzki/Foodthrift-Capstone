@@ -23,11 +23,11 @@
                     </Frame>
 
                     <Button Text="Profile" BackgroundColor="Transparent" TextColor="Black" CornerRadius="5" BorderColor="Black" BorderWidth="1"  Clicked="Button_Clicked1"/>
-                    <Button x:Name="btnCreate" Text="Request/Create Campaign"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" BorderWidth="1" CornerRadius="5"  Clicked="Button_Clicked" />
+                    <Button Text="Request/Create Campaign"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" BorderWidth="1" CornerRadius="5"  Clicked="Button_Clicked" />
                     <Button Text="Donation History"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" CornerRadius="5" BorderWidth="1" />
                     <Button Text="Subscription"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" CornerRadius="5" BorderWidth="1" />
-                    <Button Text="Incoming Donations"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" CornerRadius="5" BorderWidth="1"   Clicked="Button_Clicked_2"/>
-                    <Button Text="Feedback"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" CornerRadius="5" BorderWidth="1"/>
+                    <Button Text="Feedback"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" CornerRadius="5" BorderWidth="1" />
+                    <Button Text="About"  BackgroundColor="Transparent" TextColor="Black" BorderColor="Black" CornerRadius="5" BorderWidth="1"/>
                     <Label Text="© Foodthrift Inc. 2022" TextColor="DarkRed" HorizontalOptions="Center" Margin="10, 15"  VerticalOptions="EndAndExpand"/>
 
                 </StackLayout>

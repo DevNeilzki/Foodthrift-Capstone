@@ -98,6 +98,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Entry x:Name="UserSaveData" IsVisible="false" IsEnabled="false"></Entry>
     </StackLayout>
 </ContentPage>

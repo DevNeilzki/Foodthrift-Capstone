@@ -87,9 +87,6 @@ namespace YouCashApp
                             await App.Current.SavePropertiesAsync();
 
                             await Navigation.PushAsync(new Homepage(user));
-  activity.IsEnabled = false;
-                        activity.IsRunning = false;
-                        activity.IsVisible = false;
                         }
                         else
                         {
@@ -147,9 +144,6 @@ namespace YouCashApp
         {
             await Task.Delay(3000);
             await Navigation.PushAsync(new SignUp());
-            activity.IsEnabled = false;
-            activity.IsRunning = false;
-            activity.IsVisible = false;
         }
         protected override bool OnBackButtonPressed()
         {
@@ -159,9 +153,6 @@ namespace YouCashApp
                 if (ans == true)
                 {
                     await Navigation.PopAsync();
-  activity.IsEnabled = false;
-                        activity.IsRunning = false;
-                        activity.IsVisible = false;
                 }
             });
 
@@ -171,9 +162,6 @@ namespace YouCashApp
         private async void OnLabelTapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ForgotPass2());
-  activity.IsEnabled = false;
-                        activity.IsRunning = false;
-                        activity.IsVisible = false;
         }
     }
 }
