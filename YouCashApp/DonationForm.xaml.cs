@@ -16,8 +16,10 @@ namespace YouCashApp
     public partial class DonationForm : ContentPage
     {
         FirebaseCampaign firebaseHelper = new FirebaseCampaign();
+        FirebaseHelper firebaseHelper4 = new FirebaseHelper();
         FirebaseDonation firebaseHelper2 = new FirebaseDonation();
         FirebaseNotification firebaseHelper3 = new FirebaseNotification();
+        FirebaseDonationManagement firebaseHelper5 = new FirebaseDonationManagement();
         public DonationForm(string data)
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace YouCashApp
             "Pick-Up",
             "Delivery"
             };
+            
         }
 
         public async void checkExpiry()
@@ -47,7 +50,6 @@ namespace YouCashApp
             if (person != null)
             {
                 reqtitle.Text = person.ReqTitle;
-                ItemsDonate.Text = person.ItemNeeded;
                 BeneficiaryName.Text = person.BenefName.ToString();
                 CmpgnDesc.Text = person.Description;
                 BeneficiaryAddress.Text = person.BenefAdd;
@@ -75,18 +77,29 @@ namespace YouCashApp
         {
             try
             {
+                var allPersons = await firebaseHelper3.GetAllPerson();
+
+                int counter = allPersons.Count;
+
+                var allDonation = await firebaseHelper2.GetAllPersons();
+
+                int count = allDonation.Count;
+
+
                 var statusDonation = "";
                 var date = datePicker1.Date.ToString();
             var date2 = datePicker.Date.ToString();
             var transport = transpo.SelectedItem.ToString();
             var type = foodType.SelectedItem.ToString();
-              
+                var time = TimePickerSelector.Time.ToString();
 
-            activity.IsEnabled = true;
+
+
+                activity.IsEnabled = true;
             activity.IsRunning = true;
             activity.IsVisible = true;
             
-                if (string.IsNullOrEmpty(ItemsDonate.Text) || string.IsNullOrEmpty(CmpgnDesc.Text) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(BeneficiaryName.Text) || string.IsNullOrEmpty(BeneficiaryAddress.Text) || string.IsNullOrEmpty(transport))
+                if ( string.IsNullOrEmpty(CmpgnDesc.Text) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(BeneficiaryName.Text) || string.IsNullOrEmpty(BeneficiaryAddress.Text) || string.IsNullOrEmpty(transport))
                 {
                     await DisplayAlert("Warning", "Fill Up all the Details", "OK");
                 }
@@ -107,19 +120,40 @@ namespace YouCashApp
                     {
                         if(transport != "Delivery")
                         {
-                            statusDonation = "For Pickup";
+                            statusDonation = "For Delivery";
                         }
                         else
                         {
-                            statusDonation = "For Delivery";
+                            statusDonation = "For Pickup";
                         }
 
-                        bool isSave = await firebaseHelper2.AddPerson(ItemsDonate.Text, CmpgnDesc.Text, type, date, BeneficiaryName.Text, BeneficiaryAddress.Text, transport, date2, DateTime.Now.ToString("MM/dd/yyyy"), UserSaveData.Text, statusDonation);
+                        bool isSave = await firebaseHelper2.AddPerson(count, reqtitle.Text, CmpgnDesc.Text, type, date, FoodQty.Text, BeneficiaryName.Text, BeneficiaryAddress.Text, transport, date2,time ,DateTime.Now.ToString("MM/dd/yyyy"), UserSaveData.Text, statusDonation, "Not Yet Set");
                         if (isSave)
                         {
-                            var desc = UserSaveData.Text + " donated to your Donation Request for " + BeneficiaryName.Text;
-                            await firebaseHelper3.AddPerson(UserSaveData.Text, desc, PostedBy.Text, DateTime.Now.ToString());
-                            ItemsDonate.Text = string.Empty;
+                            var useracc="";
+                            var person = await firebaseHelper4.GetPerson(UserSaveData.Text);
+                            if (person != null)
+                            {
+                                useracc = person.UserAcc;
+                            }
+
+
+                            var desc = useracc + " donated to your Donation Request for " + BeneficiaryName.Text;
+                            await firebaseHelper3.AddPerson(counter, UserSaveData.Text, desc, PostedBy.Text, DateTime.Now.ToString(), statusDonation);
+                            var allPersons1 = await firebaseHelper2.GetAlltotalPersons(UserSaveData.Text, BeneficiaryName.Text);
+                            int counter2 = allPersons1.Count;
+                            if(counter2 > 1)
+                            {
+                                var user = await firebaseHelper2.GetPersonFavorites(UserSaveData.Text, BeneficiaryName.Text);
+                                if (user == null)
+                                {
+                                    await firebaseHelper2.AddFavorites(UserSaveData.Text, BeneficiaryName.Text);
+                                }
+                            }
+
+                            var desc1 = useracc + " wants to donate to your request";
+                            await firebaseHelper5.AddPerson(counter,count,reqtitle.Text, UserSaveData.Text, desc1, PostedBy.Text, "Pending");
+
                             BeneficiaryName.Text = string.Empty;
                             CmpgnDesc.Text = string.Empty;
                             BeneficiaryName.Text = string.Empty;

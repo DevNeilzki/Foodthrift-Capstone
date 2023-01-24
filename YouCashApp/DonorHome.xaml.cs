@@ -143,9 +143,11 @@ namespace YouCashApp
         }
         protected async override void OnAppearing()
         {
+         
             base.OnAppearing();
-            var allPersons = await firebaseHelper.GetAllPersons();
+            var allPersons = await firebaseHelper.GetAllPerson();
             lstPersons.ItemsSource = allPersons;
+           
         }
 
         async void OnCampaignTapped(object sender, ItemTappedEventArgs e)

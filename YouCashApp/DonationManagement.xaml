@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundColor="white" 
-             NavigationPage.HasNavigationBar="false"
-             x:Class="YouCashApp.DonorNotifications">
-   <StackLayout>
+               BackgroundColor="white"
+              NavigationPage.HasNavigationBar="false"
+             x:Class="YouCashApp.DonationManagement">
+    <StackLayout>
         <Frame BackgroundColor="white" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <ScrollView>
                 <StackLayout Orientation="Vertical">
@@ -20,14 +20,14 @@
                             </LinearGradientBrush>
                         </Frame.Background>
                     </Frame>
-                    <ListView ItemsSource="{Binding Monkeys}" x:Name="lstPersons" 
-                  HasUnevenRows="true" ItemSelected="OnListViewItemSelected">
+                    <ListView ItemsSource="{Binding Monkeys}" x:Name="lstPersons" HasUnevenRows="true" ItemTapped="OnCampaignTapped">
                         <ListView.ItemTemplate >
                             <DataTemplate>
                                 <ViewCell>
                                     <Frame BackgroundColor="white" BorderColor="Black"  Padding="5" Margin="0,0,0,5" HasShadow="False">
                                         <Grid Padding="10"  HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
                                             <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
                                                 <RowDefinition Height="auto" />
@@ -38,7 +38,7 @@
                                             </Grid.ColumnDefinitions>
                                             <Label Grid.Row="0" 
                                         TextColor="Black"
-                                        Text="{Binding Description}"
+                                        Text="{Binding mess}"
                                         VerticalOptions="End" />
                                             <Grid Grid.Row="2">
                                                 <Grid.RowDefinitions>
@@ -58,9 +58,6 @@
                                         Text="{Binding Status}"
                                         VerticalOptions="End" />
                                             </Grid>
-                                            <Label Grid.Row="3"
-                                        TextColor="Black"  
-                                        Text="{Binding Date}" />
                                         </Grid>
                                     </Frame>
                                 </ViewCell>
@@ -69,11 +66,7 @@
                     </ListView>
                 </StackLayout>
             </ScrollView>
-            
-            
         </Frame>
-
         <Entry x:Name="UserSaveData" IsVisible="false" IsEnabled="false"></Entry>
-    </StackLayout>
-  
+        </StackLayout>
 </ContentPage>

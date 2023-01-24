@@ -21,15 +21,15 @@
             <Label Text="Campaign Drives" TextColor="FloralWhite" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="25" Margin="0,100,0,0" />
 
             <BoxView>
-            <BoxView.Background>
+                <BoxView.Background>
 
-                <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                    <GradientStop Color="Transparent" Offset="0"/>
-                    <GradientStop Color="#2E4159"   Offset="0.9"/>
-                    <GradientStop Color="#2E4159"   Offset="1"/>
-                </LinearGradientBrush>
-            </BoxView.Background>
-        </BoxView>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                        <GradientStop Color="Transparent" Offset="0"/>
+                        <GradientStop Color="#2E4159"   Offset="0.9"/>
+                        <GradientStop Color="#2E4159"   Offset="1"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
 
 
             <ListView ItemsSource="{Binding Monkeys}"  x:Name="lstPersons" ItemTapped="OnCampaignTapped"
@@ -70,10 +70,6 @@
                                         Text="Item Needed:"
                                         TextTransform="Uppercase"
                                         VerticalOptions="Start" />
-                                        <Label Grid.Row="1" Grid.Column="2"
-                                        TextColor="Black"
-                                        Text="{Binding ItemNeeded}"
-                                        VerticalOptions="End" />
                                         <Label Grid.Row="2" Grid.Column="1"
                                         TextColor="Black"
                                         Text="Beneficiary Name:"
@@ -82,14 +78,16 @@
                                         <Label Grid.Row="2" Grid.Column="2"
                                         TextColor="Black"  
                                         Text="{Binding BenefName}" />
-                                        <Label Grid.Row="3" Grid.Column="1"
+                                        <Label  Grid.Row="3" Grid.Column="1"
                                         TextColor="Black"
                                         Text="Date Needed:"
                                         TextTransform="Uppercase"
                                         VerticalOptions="Start" />
                                         <Label Grid.Row="3" Grid.Column="2"
+                                        x:Name="lblNeeded"
                                         TextColor="Black"  
                                         Text="{Binding DateNeeded}" />
+                                        <Entry x:Name="Userdate"  Text="{Binding DateNeeded}" IsVisible="false" IsEnabled="false"></Entry>
                                     </Grid>
                                 </Grid>
                             </Frame>
@@ -98,5 +96,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
+        <Entry x:Name="UserSaveData" IsVisible="false" IsEnabled="false"></Entry>
     </StackLayout>
+    
 </ContentPage>

@@ -21,14 +21,14 @@ namespace YouCashApp
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
-            var allPersons = await firebaseHelper.GetAllPersons();
+            var allPersons = await firebaseHelper.GetAllPerson();
 
             int counter = allPersons.Count;
 
             activity.IsEnabled = true;
             activity.IsRunning = true;
             activity.IsVisible = true;
-            if (string.IsNullOrEmpty(reqTitle.Text) || string.IsNullOrEmpty(benefName.Text) || string.IsNullOrEmpty(ItemNeeds.Text) || string.IsNullOrEmpty(reqDesc.Text) || string.IsNullOrEmpty(benefAdd.Text))
+            if (string.IsNullOrEmpty(reqTitle.Text) || string.IsNullOrEmpty(benefName.Text) || string.IsNullOrEmpty(reqDesc.Text) || string.IsNullOrEmpty(benefAdd.Text))
             {
                 await DisplayAlert("Warning", "Fill Up all the Details", "OK");
             }
@@ -38,10 +38,9 @@ namespace YouCashApp
                 {
                     UserSaveData.Text = Application.Current.Properties["UserName"].ToString();
                 }
-                await firebaseHelper.AddPerson( counter ,reqTitle.Text, benefName.Text, ItemNeeds.Text, reqDesc.Text, benefAdd.Text, datePicker.Date.ToString() ,UserSaveData.Text);
+                await firebaseHelper.AddPerson( counter ,reqTitle.Text, benefName.Text, reqDesc.Text, benefAdd.Text, datePicker.Date.ToString("MM/dd/yyyy"), UserSaveData.Text, DateTime.Now.ToString("MM/dd/yyyy"));
                 reqTitle.Text = string.Empty;
                 benefName.Text = string.Empty;
-                ItemNeeds.Text = string.Empty;
                 reqDesc.Text = string.Empty;
                 benefAdd.Text = string.Empty;
                 await DisplayAlert("Success", "Campaign Added Successfully", "OK");

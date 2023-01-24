@@ -29,8 +29,6 @@
                         <controls:CustomEntry ReturnType="Next" x:Name="reqTitle" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="1"></controls:CustomEntry>
                         <Label Text="Name of Beneficiary" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
                         <controls:CustomEntry ReturnType="Next" x:Name="benefName" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="1"></controls:CustomEntry>
-                        <Label Text="Item Needed" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
-                        <controls:CustomEntry ReturnType="Next" x:Name="ItemNeeds" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="1"></controls:CustomEntry>
                         <Label Text="Description" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>
                         <controls:CustomEntry ReturnType="Next" x:Name="reqDesc" TextColor="Black" Placeholder="Type Here"  FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" TabIndex="2"></controls:CustomEntry>
                         <Label Text="Beneficiary Address" TextColor="Crimson" HorizontalOptions="FillAndExpand" FontAttributes="Bold" FontSize="18" Margin="10,0,20,0"/>

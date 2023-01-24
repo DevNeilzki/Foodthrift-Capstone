@@ -44,7 +44,7 @@ namespace YouCashApp
                         if (isSave)
                         {
                             await DisplayAlert("Registration Success", "Check Your Email to Activate your Account", "OK");
-                            await firebaseHelper.AddDonor(txtId.Text, txtName.Text, txtUser.Text, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Yes");
+                            await firebaseHelper.AddDonor(txtId.Text, txtName.Text, txtUser.Text, "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Not Set Yet", "Yes", "Active");
                             txtId.Text = string.Empty;
                             txtName.Text = string.Empty;
                             txtUser.Text = string.Empty;

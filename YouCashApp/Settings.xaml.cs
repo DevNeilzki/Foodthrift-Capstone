@@ -26,6 +26,15 @@ namespace YouCashApp
             await Navigation.PushAsync(new DonorProfile(UserSaveData.Text));
         }
 
+        private async void Button_Clicked2(object sender, EventArgs e)
+        {
+            if (Application.Current.Properties.ContainsKey("UserName"))
+            {
+                UserSaveData.Text = Application.Current.Properties["UserName"].ToString();
+            }
+            await Navigation.PushAsync(new Favorites(UserSaveData.Text));
+        }
+
 
         protected override bool OnBackButtonPressed()
         {

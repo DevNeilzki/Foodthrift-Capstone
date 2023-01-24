@@ -32,7 +32,7 @@
               RowSpacing="40" VerticalOptions="End">
 
             <StackLayout Padding="0" Margin="15,0">
-                <Label Text="BENEFICIARY SIGN UP"  Margin="10" TextColor="white" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="20"/>
+                <Label Text="DONOR SIGN UP"  Margin="10" TextColor="white" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="20"/>
                 <Frame BackgroundColor="Gray" BorderColor="Black" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
 
                     <StackLayout Orientation="Horizontal">

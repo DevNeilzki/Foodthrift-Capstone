@@ -21,6 +21,7 @@ namespace YouCashApp.Model
         public string BusinessContact { get; set; }
         public string BusinessTIN { get; set; }
         public string FirstLogin { get; set; }
+        public string Status { get; set; }
 
     }
 }
