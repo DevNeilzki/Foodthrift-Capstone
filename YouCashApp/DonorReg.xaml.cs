@@ -1,4 +1,6 @@
 ﻿using Android.App;
+using Android.Content.Res;
+using Android.Media;
 using Firebase.Auth;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,9 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YouCashApp.Helper;
+using static Android.Provider.ContactsContract.CommonDataKinds;
 using static Android.Provider.SyncStateContract;
+using static Android.Service.Voice.VoiceInteractionSession;
 
 namespace YouCashApp
 {
@@ -81,19 +85,27 @@ namespace YouCashApp
                         bool isSave = await _userauth.Verified(user, pass);
                         if (isSave)
                         {
-                            /*  Preferences.Set("loginStatus", "1");
-                              Xamarin.Forms.Application.Current.MainPage = Homepage;
-                              await SecureStorage.SetAsync(Constants.UserIdKey, user);*/
+                           
+                            var useracc = await firebaseHelper.GetPerson2(user);
 
-                            if (!App.Current.Properties.ContainsKey("UserName"))
-                                App.Current.Properties.Add("UserName", email.Text);
-                            App.Current.Properties["UserName"] = email.Text;
-                            await App.Current.SavePropertiesAsync();
+                            if (useracc != null)
+                                if ((email.Text == useracc.Email) && (Passwd.Text == useracc.Password) && (useracc.Status == "Active"))
+                                {
+                                    await App.Current.MainPage.DisplayAlert("Login Success", "Welcome to Foodthrift!", "Ok");
 
-                            await Navigation.PushAsync(new DonorHomepage(user));
-                            activity.IsEnabled = false;
-                            activity.IsRunning = false;
-                            activity.IsVisible = false;
+                                    if (!App.Current.Properties.ContainsKey("UserName"))
+                                        App.Current.Properties.Add("UserName", email.Text);
+                                    App.Current.Properties["UserName"] = email.Text;
+                                    await App.Current.SavePropertiesAsync();
+                                    await Navigation.PushAsync(new DonorHomepage(user));
+
+
+                                    activity.IsEnabled = false;
+                                    activity.IsRunning = false;
+                                    activity.IsVisible = false;
+                                }
+                                else
+                                    await App.Current.MainPage.DisplayAlert("Login Fail", "Account is Disabled", "OK");
                         }
                         else
                         {
@@ -131,20 +143,9 @@ namespace YouCashApp
 
             }
             /* //call GetUser function which we define in Firebase helper class    
-             var user = await firebaseHelper.GetPerson(email.Text);
+             var useracc = await firebaseHelper.GetPerson(email.Text);
              //firebase return null valuse if user data not found in database    
-             if (user != null)
-                 if ((email.Text == user.Email) && (Passwd.Text == user.Password))
-                 {
-                     await App.Current.MainPage.DisplayAlert("Login Success", "Welcome to Foodthrift!", "Ok");
-                     //Navigate to Wellcom page after successfuly login    
-                     //pass user email to welcom page    
-                     await Navigation.PushAsync(new DonorHomepage());
-                 }
-                 else
-                     await App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct Email and Password", "OK");
-             else
-                 await App.Current.MainPage.DisplayAlert("Login Fail", "User not found", "OK");*/
+           */
         }
         
 

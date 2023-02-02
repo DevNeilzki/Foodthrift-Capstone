@@ -84,12 +84,26 @@ namespace YouCashApp
                         bool isSave = await _userauth.Verified(user, pass);
                         if (isSave)
                         {
-                            if (!App.Current.Properties.ContainsKey("UserName"))
-                                App.Current.Properties.Add("UserName", user);
-                            App.Current.Properties["UserName"] = user;
-                            await App.Current.SavePropertiesAsync();
+                            var useracc = await firebaseHelper.GetPerson(user);
 
-                            await Navigation.PushAsync(new Homepage(user));
+                            if (useracc != null)
+                                if ((email.Text == useracc.Email) && (Passwd.Text == useracc.Password) && (useracc.Status == "Active"))
+                                {
+                                    await App.Current.MainPage.DisplayAlert("Login Success", "Welcome to Foodthrift!", "Ok");
+
+                                    if (!App.Current.Properties.ContainsKey("UserName"))
+                                        App.Current.Properties.Add("UserName", email.Text);
+                                    App.Current.Properties["UserName"] = email.Text;
+                                    await App.Current.SavePropertiesAsync();
+                                    await Navigation.PushAsync(new DonorHomepage(user));
+
+
+                                    activity.IsEnabled = false;
+                                    activity.IsRunning = false;
+                                    activity.IsVisible = false;
+                                }
+                                else
+                                    await App.Current.MainPage.DisplayAlert("Login Fail", "Account is Disabled", "OK");
                             activity.IsEnabled = false;
                             activity.IsRunning = false;
                             activity.IsVisible = false;

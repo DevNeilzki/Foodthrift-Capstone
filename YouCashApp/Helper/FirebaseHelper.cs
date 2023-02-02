@@ -86,6 +86,15 @@ namespace YouCashApp.Helper
             return allPersons.Where(a => a.Email == email).FirstOrDefault();
         }
 
+        public async Task<Person> GetPerson2(string email)
+        {
+            var allPersons = await GetAllPersons();
+            await firebase
+              .Child("Donor")
+              .OnceAsync<Person>();
+            return allPersons.Where(a => a.Email == email).FirstOrDefault();
+        }
+
         public async Task<bool> UpdatePerson(string email, string password, string useracc, string fname, string lname, string add, string cntct, string subs, string acctype, string busname, string busemail, string buscontct, string busTIN, string firstlog)
         {
             var toUpdatePerson = (await firebase
