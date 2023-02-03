@@ -33,7 +33,8 @@ namespace YouCashApp.Helper
                   BusinessEmail = item.Object.BusinessEmail,
                   BusinessContact = item.Object.BusinessContact,
                   BusinessTIN = item.Object.BusinessTIN,
-                  FirstLogin = item.Object.FirstLogin
+                  FirstLogin = item.Object.FirstLogin,
+                  Status = item.Object.Status
 
               }).ToList();
         }
@@ -80,6 +81,8 @@ namespace YouCashApp.Helper
         public async Task<Person> GetPerson(string email)
         {
             var allPersons = await GetAllPersons();
+
+
             await firebase
               .Child("Persons")
               .OnceAsync<Person>();
@@ -88,7 +91,7 @@ namespace YouCashApp.Helper
 
         public async Task<Person> GetPerson2(string email)
         {
-            var allPersons = await GetAllPersons();
+            var allPersons = await GetAllDonor();
             await firebase
               .Child("Donor")
               .OnceAsync<Person>();
